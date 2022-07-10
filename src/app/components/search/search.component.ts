@@ -6,23 +6,21 @@ import { SearchItemsServiceService } from '../../services/search-items-service.s
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
   searchField = new FormControl();
   itemsList: any = [];
 
-
-  constructor(private itemsService: SearchItemsServiceService, private router: Router) { }
+  constructor(
+    private itemsService: SearchItemsServiceService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.itemsService.getItemsList().subscribe(list => {
+    this.itemsService.getItemsList().subscribe((list) => {
       this.itemsList = list;
-    })
-  }
-
-  onItemClick(item: any) {
-    this.router.navigate([`/itemDetails/${item.id}`]);
+    });
   }
 
   get counter() {
@@ -36,4 +34,7 @@ export class SearchComponent implements OnInit {
     });
   }
 
+  onItemClick(item: any) {
+    this.router.navigate([`/itemDetails/${item.id}`]);
+  }
 }

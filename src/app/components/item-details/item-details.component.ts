@@ -19,10 +19,10 @@ export class ItemDetailsComponent implements OnInit {
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
     this.itemsService.getDetails(id).subscribe((itemDetails) => {
-      if (itemDetails) {
-        this.item = itemDetails;
-      } else {
+      if (!itemDetails) {
         this.router.navigate(['not-found']);
+      } else {
+        this.item = itemDetails;
       }
     });
   }
