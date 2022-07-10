@@ -1,0 +1,15 @@
+<div class="col-12 d-flex justify-content-center">
+    <div class="form-group mt-5">
+
+        <input type="text" [placeholder]="'Search Items'" class="form-control" [formControl]="searchField" />
+        <p>Total Items: {{counter}}</p>
+        <div class="list-group items">
+            <a class="list-group-item list-group-item-action py-0">
+                <hr class="style-one" />
+            </a>
+            <a *ngFor="let item of items " (click)="onItemClick(item)" class="list-group-item list-group-item-action ">
+                {{ item.name }}
+            </a>
+        </div>
+    </div>
+</div>
