@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SearchItemsServiceService } from 'src/app/services/search-items-service.service';
+import {
+  RandomItem,
+  SearchItemsServiceService,
+} from 'src/app/services/search-items-service.service';
 
 @Component({
   selector: 'app-item-details',
@@ -8,7 +11,7 @@ import { SearchItemsServiceService } from 'src/app/services/search-items-service
   styleUrls: ['./item-details.component.scss'],
 })
 export class ItemDetailsComponent implements OnInit {
-  item: any;
+  item: RandomItem | undefined;
 
   constructor(
     private itemsService: SearchItemsServiceService,
